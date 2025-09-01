@@ -22,13 +22,13 @@ const loadTasks = async () => {
   }
   
 const createTask = async (taskData) => {
-    try {
+try {
       const newTask = await taskService.createTask(taskData)
-      toast.success("Task created successfully!")
       setTasks(prev => [...prev, newTask])
       return newTask
     } catch (err) {
-      throw new Error("Failed to create task")
+      console.error("Error in createTask hook:", err.message)
+      throw new Error(err.message || "Failed to create task")
     }
   }
   

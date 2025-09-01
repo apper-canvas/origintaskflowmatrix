@@ -13,7 +13,7 @@ const QuickTaskAdd = ({ onAddTask, categories, selectedCategoryId }) => {
   const [isExpanded, setIsExpanded] = useState(false)
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
-  const [categoryId, setCategoryId] = useState(selectedCategoryId || "")
+const [categoryId, setCategoryId] = useState(selectedCategoryId || null)
   const [priority, setPriority] = useState("medium")
   const [dueDate, setDueDate] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -31,7 +31,7 @@ const QuickTaskAdd = ({ onAddTask, categories, selectedCategoryId }) => {
     setIsExpanded(false)
     setTitle("")
     setDescription("")
-    setCategoryId(selectedCategoryId || "")
+setCategoryId(selectedCategoryId || null)
     setPriority("medium")
     setDueDate("")
   }
@@ -158,7 +158,7 @@ const QuickTaskAdd = ({ onAddTask, categories, selectedCategoryId }) => {
           
           {/* Form fields */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Select
+<Select
               value={categoryId}
               onChange={(e) => setCategoryId(e.target.value)}
               required
@@ -214,7 +214,7 @@ const QuickTaskAdd = ({ onAddTask, categories, selectedCategoryId }) => {
                 variant="primary"
                 size="sm"
                 loading={isSubmitting}
-                disabled={!title.trim() || !categoryId}
+disabled={!title.trim() || !categoryId || isSubmitting}
               >
                 Add Task
               </Button>

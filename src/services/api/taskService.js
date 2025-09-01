@@ -126,7 +126,7 @@ export const createTask = async (taskData) => {
         created_at_c: new Date().toISOString(),
         completed_at_c: null,
         order_c: taskData.order || 0,
-        category_id_c: parseInt(taskData.categoryId) || 1
+category_id_c: parseInt(taskData.categoryId)
       }]
     }
 
